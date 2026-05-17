@@ -46,6 +46,10 @@ textarea {
   font: inherit;
 }
 
+section {
+  scroll-margin-top: 92px;
+}
+
 .font-serif {
   font-family: "Cormorant Garamond", serif;
 }
@@ -54,8 +58,59 @@ textarea {
   font-family: "Noto Naskh Arabic", serif;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 850ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.reveal-fade-up {
+  transform: translateY(28px);
+}
+
+.reveal-fade-left {
+  transform: translateX(28px);
+}
+
+.reveal-fade-right {
+  transform: translateX(-28px);
+}
+
+.reveal-scale-in {
+  transform: translateY(18px) scale(0.96);
+}
+
+.reveal-soft-blur {
+  filter: blur(12px);
+  transform: translateY(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 @layer components {
   .form-field {
-    @apply rounded-2xl border border-[#d8c99d]/70 bg-[#fbf7ef] px-5 py-4 text-[#332c27] outline-none transition placeholder:text-[#8f8166]/70 focus:border-[#7d6a42] focus:bg-white focus:shadow-[0_0_0_4px_rgba(125,106,66,0.1)];
+    @apply rounded-[1.1rem] border border-[#d8c99d]/70 bg-[#fbf7ef] px-5 py-4 text-[#332c27] outline-none transition placeholder:text-[#8f8166]/70 focus:border-[#7d6a42] focus:bg-white focus:shadow-[0_0_0_4px_rgba(125,106,66,0.12)];
   }
 }
