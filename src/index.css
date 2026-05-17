@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fcf6eb;
+  color: #4c3c33;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(199, 164, 87, 0.32);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.font-serif {
+  font-family: "Cormorant Garamond", serif;
+}
+
+[dir="rtl"] {
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+@layer components {
+  .form-field {
+    @apply rounded-2xl border border-[#d8c99d]/70 bg-[#fbf7ef] px-5 py-4 text-[#332c27] outline-none transition placeholder:text-[#8f8166]/70 focus:border-[#7d6a42] focus:bg-white focus:shadow-[0_0_0_4px_rgba(125,106,66,0.1)];
+  }
+}
